@@ -1,0 +1,27 @@
+#!/usr/bin/env python
+
+import requests
+import wget
+import os
+import subprocess
+
+PiDict = {
+        'Discord/unixitry-bot':'https://github.com/DiscordBotCreator-png/Unixitry/archive/refs/heads/main.zip', 
+        'MonkeLang/main':'https://raw.githubusercontent.com/DiscordBotCreator-png/MonkeLang/master/main.py', 
+        'MonkeLang/basic':'https://raw.githubusercontent.com/DiscordBotCreator-png/MonkeLang/master/basic.py', 
+}
+
+HLi = input('URL or Package Identifier > ')
+
+if 'https://' in HLi:
+    print("Download Started!")
+    wget.download(HLi)
+elif HLi == 'misc/neofetch':
+    wget.download('https://raw.githubusercontent.com/dylanaraps/neofetch/master/neofetch.1')
+    wget.download('https://raw.githubusercontent.com/dylanaraps/neofetch/master/neofetch')
+    wget.download('https://raw.githubusercontent.com/dylanaraps/neofetch/master/Makefile')
+    os.system("make install")
+else:
+    url = PiDict[HLi]
+    print("Download Started!")
+    wget.download(url)
