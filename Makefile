@@ -5,4 +5,5 @@ install:
 	rm -rf LICENSE
 	rm -rf README.md
 	rm -rf Makefile
+	rm -rf ../MonkeGet
 
